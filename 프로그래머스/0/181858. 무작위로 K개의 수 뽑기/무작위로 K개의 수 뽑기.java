@@ -1,29 +1,26 @@
+
+import java.util.*;
 class Solution {
-    public int[] solution(int[] arr, int k) {
-          int[] answer = new int[k];
-        int count = 1;
+    public  int[]  solution(int[] arr, int k) {
+   
+        HashSet<Integer> set = new HashSet<>();
+        int[] answer=new int[k];
         
-        if (arr.length > 0) {
-            answer[0] = arr[0];
-        }
-        
-        for (int i = 1; i < arr.length && count < k; i++) {
-            boolean isDuplicate = false;
-            for (int j = 0; j < count; j++) {
-                if (answer[j] == arr[i]) {
-                    isDuplicate = true;
-                    break;
-                }
-            }
-            if (!isDuplicate) {
-                answer[count] = arr[i];
+        int count=0;
+        for(int i=0; i<arr.length; i++) {
+            if(!set.contains(arr[i])) {
+                set.add(arr[i]);
+                answer[count]=arr[i];
                 count++;
             }
+            if(count==k) {
+                break;
+            }
+        }
+        for(int i=count; i<k; i++) {
+            answer[i]=-1; 
         }
         
-        for (int i = count; i < k; i++) {
-            answer[i] = -1;
-        }
         
         return answer;
     }
