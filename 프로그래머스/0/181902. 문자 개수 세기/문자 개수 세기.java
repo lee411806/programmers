@@ -1,3 +1,5 @@
+//20240703 복습
+
 class Solution {
     public int[] solution(String my_string) {
         int[] answer = new int[52];
