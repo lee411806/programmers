@@ -1,5 +1,7 @@
 class Solution {
     public String solution(String my_string, int[][] queries) {
+        
+        // 2024 0705 복습 완료 
    char[] arr = my_string.toCharArray(); // 문자열을 문자 배열로 변환
         
         for (int[] query : queries) {
