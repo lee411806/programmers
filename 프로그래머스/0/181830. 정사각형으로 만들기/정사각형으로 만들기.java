@@ -1,6 +1,6 @@
 class Solution {
     public int[][] solution(int[][] arr) {
-       
+       //20240706 복습 1
         int row = arr.length;
         int col = arr[0].length;
 
@@ -19,7 +19,7 @@ class Solution {
                 for (int j = 0; j < row; j++) {
                     temp[j][i] = arr[j][i];
                 }
-                temp[row][i] = 0;
+               // temp[row][i] = 0;
             }
             return temp;
         } else {
