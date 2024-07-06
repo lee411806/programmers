@@ -1,6 +1,8 @@
 import java.util.*;
 class Solution {
     public String[] solution(String[] picture, int k) {
+        
+        //20240706 복습 1
         List<String> list = new ArrayList<>();
         StringBuilder sb = new StringBuilder();
         
