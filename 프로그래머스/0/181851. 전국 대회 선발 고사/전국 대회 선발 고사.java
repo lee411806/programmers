@@ -2,6 +2,9 @@ import java.util.*;
 
 class Solution {
     public int solution(int[] rank, boolean[] attendance) {
+        
+        //2024 07 10 ) 1차 수정
+        
         int answer = 0;
         Map<Integer, Integer> attendMap = new HashMap<>();
         for(int i = 0; i < attendance.length; i++) {
