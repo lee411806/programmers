@@ -3,6 +3,8 @@ import java.util.Arrays;
 class Solution {
    
     public int solution(int a, int b, int c, int d) {
+        //20240711 1차복습
+        
         int answer = 0;  
         int list[] = {a,b,c,d};
         
