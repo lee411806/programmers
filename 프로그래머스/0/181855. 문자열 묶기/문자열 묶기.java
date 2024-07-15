@@ -1,7 +1,9 @@
 import java.util.*; 
 class Solution {
     public int solution(String[] strArr) {
-            
+        
+        // 2024 07 15 2차 복습 졸업
+        
         int[] intArr = new int[30];
         
         for(int i=0 ; i < strArr.length ; i++){
