@@ -10,7 +10,7 @@ class Solution {
                 for (int j = 0; j < col; j++) {
                     temp[i][j] = arr[i][j];
                 }
-                temp[i][col] = 0;
+                //temp[i][col] = 0;
             }
             return temp;
         } else if (col > row) {
