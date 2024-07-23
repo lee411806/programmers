@@ -1,23 +1,34 @@
 import java.util.*;
 class Solution {
-    public String[] solution(String[] picture, int k) {
+    public List<String> solution(String[] picture, int k) {
+            
+        // 20240723 2차 복습 완
         
-        //20240706 복습 1
         List<String> list = new ArrayList<>();
-        StringBuilder sb = new StringBuilder();
+         
         
-        for(int i=0; i<picture.length; i++){
-            for(int j=0; j<picture[i].length(); j++){
-                for(int x=0; x<k; x++){
-                    sb.append(picture[i].charAt(j));
-                }
+        for(int i=0 ; i < picture.length ;i++){
+          String temp = "";  
+          char[] c = picture[i].toCharArray();
+            
+            for(int j=0 ; j < c.length ; j++){
+               for(int l = 0 ; l< k ; l++){
+                 temp += c[j];    
+               }
+               
             }
-            for(int j=0; j<k; j++){
-                list.add(sb.toString());
+        
+             for(int m = 0; m < k; m++){
+                 list.add(temp);
+            
             }
-            sb.delete(0, sb.length());
+        
+        
+        
         }
         
-        return list.toArray(new String[list.size()]);
+        return list; 
+        
+     
     }
 }
