@@ -3,6 +3,7 @@ class Solution {
     public int[] solution(int[] arr, int[] query) {
             
     //20240710 ) 1차 수정
+    //20240724 ) 2차 수정 
         int start = 0;
         int end = arr.length - 1;
         for (int i = 0; i < query.length; i++) {
