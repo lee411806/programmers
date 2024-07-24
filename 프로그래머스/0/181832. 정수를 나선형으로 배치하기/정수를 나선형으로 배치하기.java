@@ -1,7 +1,7 @@
 class Solution {
     public int[][] solution(int n) {
-        //2025 7 11 1차 복습
-        
+        //2024 7 11 1차 복습
+        //2024 7 25 2차 복습
         int[][] answer = new int[n][n];
 
         int num = 1; // 배열에 채워질 정수 값
