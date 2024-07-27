@@ -1,23 +1,23 @@
 class Solution {
     public String solution(String my_string, int[][] queries) {
         
-        // 2024 07019 2트 실패 
-   char[] arr = my_string.toCharArray(); // 문자열을 문자 배열로 변환
-        
-        for (int[] query : queries) {
-            int start = query[0];
-            int end = query[1];
-            
-            while (start < end) {
-                char temp = arr[start];
-                arr[start] = arr[end];
-                arr[end] = temp;
+        char[] c = my_string.toCharArray();
+        String result ="";
+        for(int i=0 ; i < queries.length ; i++){
+            int start = queries[i][0];
+            int end = queries[i][1]; 
+            while(start < end){
+                char temp = c[start];
+                c[start] = c[end];
+                c[end] = temp;
                 
                 start++;
                 end--;
             }
+        
         }
         
-        return new String(arr); // 문자 배열을 문자열로 변환하여 반환
+        result = String.valueOf(c);
+        return result;
     }
 }
