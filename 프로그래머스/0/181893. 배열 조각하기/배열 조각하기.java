@@ -1,19 +1,26 @@
 import java.util.*;
 class Solution {
     public int[] solution(int[] arr, int[] query) {
+                
+        int startIndex =0;
+        int endIndex = 0;
+        
+        for(int i=0 ; i < query.length ; i++ ){
             
-    //20240710 ) 1차 수정
-    //20240724 ) 2차 수정 
-        int start = 0;
-        int end = arr.length - 1;
-        for (int i = 0; i < query.length; i++) {
-            if (i % 2 == 0) {
-                end = start + query[i];
-            } else {
-                start += query[i];
+            if(i%2 == 0){
+                
+                endIndex = startIndex + query[i];
+                
+            }else {
+                
+                startIndex += query[i]; 
             }
+            
         }
-
-        return Arrays.copyOfRange(arr, start, end + 1);
+        
+    
+        int[] result = Arrays.copyOfRange(arr,startIndex, endIndex + 1);
+        
+        return result;
     }
 }
