@@ -1,7 +1,11 @@
 import java.util.*;
 class Solution {
     public int[] solution(int[] arr, int[] query) {
-                
+        
+            //20240710 ) 1차 수정
+            //20240724 ) 2차 수정 
+            //2024 0730 3차수정 완
+        
         int startIndex =0;
         int endIndex = 0;
         
