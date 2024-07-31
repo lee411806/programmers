@@ -1,41 +1,43 @@
 class Solution {
     public int[][] solution(int n) {
-        //2024 7 11 1차 복습
-        //2024 7 25 2차 복습
-        int[][] answer = new int[n][n];
-
-        int num = 1; // 배열에 채워질 정수 값
-        int rowStart = 0; // 행의 시작 인덱스
-        int rowEnd = n - 1; // 행의 끝 인덱스
-        int colStart = 0; // 열의 시작 인덱스
-        int colEnd = n - 1; // 열의 끝 인덱스
-
-        while (num <= n * n) {
-            // 왼쪽 -> 오른쪽
-            for (int i = colStart; i <= colEnd; i++) {
-                answer[rowStart][i] = num++;
+        
+        int count = 1;
+        int rowStart = 0;
+        int rowEnd = n-1;
+        int colStart =0;
+        int colEnd = n-1;
+        
+        int[][] array = new int[n][n];
+        
+        while(count <= n*n){
+            
+            for(int i= colStart ; i <= colEnd ; i++){
+                array[rowStart][i] = count++;
+                
             }
-            rowStart++; // 행의 시작 인덱스 증가
-
-            // 위쪽 -> 아래쪽
-            for (int i = rowStart; i <= rowEnd; i++) {
-                answer[i][colEnd] = num++;
+                rowStart ++;
+            
+            for(int i= rowStart; i <= rowEnd  ; i++){
+                array[i][colEnd] = count++;
             }
-            colEnd--; // 열의 끝 인덱스 감소
-
-            // 오른쪽 -> 왼쪽
-            for (int i = colEnd; i >= colStart; i--) {
-                answer[rowEnd][i] = num++;
+                colEnd --;
+            
+            for(int i= colEnd ; i>= colStart ; i--){
+                array[rowEnd][i] = count++;
+                
             }
-            rowEnd--; // 행의 끝 인덱스 감소
-
-            // 아래쪽 -> 위쪽
-            for (int i = rowEnd; i >= rowStart; i--) {
-                answer[i][colStart] = num++;
+                rowEnd --;
+            
+            for(int i=rowEnd ; i>=rowStart ; i--){
+                array[i][colStart] = count++;
+                
             }
-            colStart++; // 열의 시작 인덱스 증가
+                colStart++;
+            
+            
         }
-
-        return answer;
+            
+        return array;
+        
     }
 }
