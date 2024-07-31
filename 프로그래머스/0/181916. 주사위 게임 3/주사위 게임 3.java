@@ -3,54 +3,47 @@ import java.util.Arrays;
 class Solution {
    
     public int solution(int a, int b, int c, int d) {
-        //20240711 1차복습
-        //20240724 2차복습
+                
+          //20240724 2차복습
+          //20240731 3차 복습
         
-        int answer = 0;  
-        int list[] = {a,b,c,d};
+            int[] li = {a,b,c,d};
         
-        Arrays.sort(list); //오름차순 정렬
+            Arrays.sort(li);
         
-        //모두 같은 경우
-        if(list[0] == list[3])
-        {
-            return 1111*list[0];
-        }      
-        //세 주사위가 같은 경우
-        else if(list[0] == list[2])
-        {
-            return (int)Math.pow((10*list[0]+list[3]),2);
-        }        
-        else if(list[1]== list[3])
-        {
-            return (int)Math.pow((10*list[1]+list[0]),2);
-        }       
-        //두 개씩 같을 경우 
-        else if(list[0] == list[1] && list[2]==list[3])
-        {
-            return (list[0] + list[2])*Math.abs(list[0] - list[2]);
-        }
-        //두 개만 같고, 나머지는 각각 다를 경우 
-        else if(list[0] == list[1] || list[1] == list[2] || list[2] == list[3])
-        {
-            if(list[0] == list[1])
-            {
-                return list[2]*list[3];
+            //네 숫자가 모두 같음
+            if(li[0] == li[3]){
+                return 1111 * li[0];
             }
-            else if(list[1] == list[2])
-            {
-                return list[0]*list[3];
+                // 세 주사위가 같음 case1
+            else if(li[0] == li[2]){
+                return  (int) Math.pow(10 * li[0] + li[3], 2);
             }
-            else
-            {
-                return list[0]*list[1];
+                // 세 주사위가 같음 case2
+            else if(li[1] == li[3]){
+                return  (int) Math.pow(10 * li[1] + li[0], 2);
             }
-        }
-        //모두 다른 경우 
-        else
-        {
-            return list[0];
-        }
+                //두 개씩 같은 값이 나올 때
+            else if(li[0] == li[1] && li[2] == li[3]){
+                return (li[0] + li[2]) * Math.abs(li[0] - li[2]);
+            }
+                // 두 주사위에서 나온 숫자가 p로 같고 나머지 숫자가 각각 다름
+            else if(li[0] == li[1] || li[1] == li[2] || li[2] == li[3]){
+                if(li[0] == li[1]){
+                    return li[2] * li[3];
+                }else if(li[1] == li[2]){
+                       return li[0] * li[3];
+                }else if( li[2] == li[3]){
+                     return li[0] * li[1];
+                }else {
+                    return 1;
+                }
+                
+            }
+                // 네 수자위에 숫자가 모두 다르다면
+            else {
+                return li[0];
+            }
         
     }
 }
