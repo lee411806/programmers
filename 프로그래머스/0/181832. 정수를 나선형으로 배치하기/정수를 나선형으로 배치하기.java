@@ -1,6 +1,9 @@
 class Solution {
     public int[][] solution(int n) {
         
+          //2024 7 25 2차 복습
+          //2024 07 31 3차 복습
+        
         int count = 1;
         int rowStart = 0;
         int rowEnd = n-1;
