@@ -1,28 +1,33 @@
 
 import java.util.*;
 class Solution {
-    public int[] solution(int[] arr, int k) {
-            //20240726 3차 수정
-               HashSet<Integer> set = new HashSet<>();
-        int[] answer=new int[k];
-        
-        int count=0;
-        for(int i=0; i<arr.length; i++) {
-            if(!set.contains(arr[i])) {
-                set.add(arr[i]);
-                answer[count]=arr[i];
-                count++;
+    public List<Integer> solution(int[] arr, int k) {
+      
+            
+            HashSet<Integer> set = new HashSet<>();
+            int count=0;
+            
+            List<Integer> list = new ArrayList<>();    
+            
+            for(int i=0 ; i<arr.length ; i++){
+                if(!set.contains(arr[i])){
+                    set.add(arr[i]);
+                    list.add(arr[i]);
+                     count++;
+                }
+               
+                if(count == k)break;
             }
-            if(count==k) {
-                break;
+        
+        
+            if(list.size() < k){
+                while(list.size() <k){
+                    list.add(-1);
+                }
             }
-        }
-        for(int i=count; i<k; i++) {
-            answer[i]=-1; 
-        }
+            
         
-        
-        return answer;
+        return list;
      
     }
 }
