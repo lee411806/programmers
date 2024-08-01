@@ -2,8 +2,8 @@
 import java.util.*;
 class Solution {
     public List<Integer> solution(int[] arr, int k) {
-      
-            
+             //20240726 3차 수정
+            //2024 08 01 4트 완
             HashSet<Integer> set = new HashSet<>();
             int count=0;
             
@@ -26,6 +26,10 @@ class Solution {
                 }
             }
             
+        //한번에 이렇게 하는 경우도 있다.
+        /*   for(int i=count; i<k; i++) {
+            answer[i]=-1; 
+        } */
         
         return list;
      
