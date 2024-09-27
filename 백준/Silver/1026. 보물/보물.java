@@ -1,10 +1,10 @@
 
 /*
 문제
-
+B에 있는 수 재배열 하지 않고 합을 최소로 만들기
 
 풀이
-B에 있는 수 재배열 하면 너무 쉬워짐
+
 
 
  */
@@ -13,9 +13,7 @@ B에 있는 수 재배열 하면 너무 쉬워짐
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.StringTokenizer;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args) throws IOException {
@@ -25,7 +23,7 @@ public class Main {
         int length = Integer.parseInt(br.readLine());
 
         int[] a = new int[length];
-        Integer[] b = new Integer[length];
+        List<Integer> b = new ArrayList<>();
 
         StringTokenizer st = new StringTokenizer(br.readLine());
         for (int i = 0; i < length; i++) {
@@ -33,20 +31,28 @@ public class Main {
         }
         StringTokenizer st2 = new StringTokenizer(br.readLine());
         for (int i = 0; i < length; i++) {
-            b[i] = Integer.parseInt(st2.nextToken());
+            b.add(Integer.parseInt(st2.nextToken()));
         }
 
         Arrays.sort(a);
         // 내림차순 정렬
-        Arrays.sort(b, Collections.reverseOrder());
 
-        for (int i = length; i < length; i++) {
-            System.out.println(b[i]);
-        }
+        int result = 0;
 
-        int result =0;
         for(int i=0 ; i<length ; i++){
-            result += a[i] * b[i];
+            int maxIndex = 0;
+
+
+            for(int j=1; j < b.size() ; j++){
+                if(b.get(j)>b.get(maxIndex)){
+                    maxIndex = j;
+
+                }
+            }
+
+            result += b.get(maxIndex) * a[i];
+            b.remove(maxIndex);
+
         }
 
         System.out.println(result);
