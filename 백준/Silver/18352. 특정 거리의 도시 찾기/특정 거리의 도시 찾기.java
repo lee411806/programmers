@@ -9,15 +9,15 @@
 도시의 개수 N , 도로의 개수 M, 거리 정보 K, 출발 도시의 번호 X
 
 풀이
-최단거리 k거리로 갈 수 있는 모든 도시 -> bfs
-인접행렬로 그래프를 나타내기에는 도시가 너무 많은 -> 인접 리스트
-bfs로 최단거리를 구하는 알고리즘에서 최단거리가 2일때 나오는 도시를 출력
+1.최단거리 k거리로 갈 수 있는 모든 도시 -> bfs
+2.인접행렬로 그래프를 나타내기에는 도시가 너무 많음 -> 인접 리스트
+3.bfs로 최단거리를 구하는 알고리즘에서 최단거리가 2일때 나오는 도시를 구할때 중복 방지로 set에 넣어줌
+4.set을 list에 넣고 정렬하여 출력
  */
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.sql.Array;
 import java.util.*;
 
 public class Main {
@@ -62,6 +62,7 @@ public class Main {
     }
 
     public static void bfs() {
+        //bfs que활용
         Queue<int[]> queue = new ArrayDeque<>();
 
         //거리가 k인 도시가 없을 때
@@ -69,6 +70,7 @@ public class Main {
 
         queue.add(new int[]{X, 0}); // 현재 x번 도시 0거리의 상태로 탐색
 
+        // 접점 중복 방지 visited
         boolean[] visited = new boolean[N + 1];
         visited[X] = true;
 
@@ -83,6 +85,8 @@ public class Main {
                 found = true;
             }
 
+
+            // 겉 List로 index(currentcity)접근 하여 안에있는 List 즉 연결되어있는 모든 도시를 nextCity에 넣는다.
             for (int nextCity : cityGraph.get(currentCity)) {
                 if (!visited[nextCity]) {
                     visited[nextCity] = true;
