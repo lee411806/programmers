@@ -7,36 +7,42 @@
 1. 작업일 수를 queue로 나타낸다.
 2. queue에서 앞과 뒤를 비교하여 각 배포때 몇개의 작업이 완료되었는지 판단 후 배열에 넣기
 */
+
 import java.util.*;
 
 class Solution {
     public int[] solution(int[] progresses, int[] speeds) {
-
-        ArrayList<Integer> list = new ArrayList<>();
-        Queue<Integer> q = new LinkedList<>();
-
-        for (int i = 0; i < progresses.length; i++) {
-            if ((100 - progresses[i]) % speeds[i] == 0) {
-                q.add((100 - progresses[i]) / speeds[i]);
-            } else {
-                q.add((100 - progresses[i]) / speeds[i] + 1);
+    
+        List<Integer> list = new ArrayList<>();
+        Queue<Integer> queue = new LinkedList<>();
+        
+        for(int i=0 ; i<progresses.length ; i++){
+            
+            if((100 - progresses[i]) % speeds[i] == 0){
+                queue.add((100 - progresses[i]) / speeds[i]);
+            }else{
+                 queue.add((100 - progresses[i]) / speeds[i] + 1);
             }
+            
         }
-
-        int x = q.poll();
+        
+        int first = queue.poll();
         int count = 1;
-        while (!q.isEmpty()) {
-            if (x >= q.peek()) {
+        
+        while(!queue.isEmpty()){
+            if(first >= queue.peek()){
                 count++;
-                q.poll();
-            } else {
+                queue.poll();
+            }else{
                 list.add(count);
                 count = 1;
-                x = q.poll();
+                //first 초기화
+               first = queue.poll();
             }
         }
+        //마지막 요소 더해줌
         list.add(count);
-
+        
         int[] answer = new int[list.size()];
         for (int i = 0; i < answer.length; i++) {
             answer[i] = list.get(i);
@@ -44,5 +50,6 @@ class Solution {
 
 
         return answer;
+        
     }
 }
